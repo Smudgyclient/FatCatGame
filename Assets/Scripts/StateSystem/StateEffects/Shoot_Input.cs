@@ -12,6 +12,16 @@ public class Shoot_Input : StateEffect
     private Camera cam;
     private Vector2 mousePos;
 
+    Vector3 rot;
+
+    // Adjust this sensitivity factor to control the accelerometer sensitivity
+    public float accelerometerSensitivity = 0.5f;
+
+    private void Start()
+    {
+        rot = Vector3.zero;
+        Input.gyro.enabled = false; // Disable gyro
+    }
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -25,7 +35,7 @@ public class Shoot_Input : StateEffect
     private void ChangeWeapon_performed(InputAction.CallbackContext obj)
     {
         //user.GetComponent<Character>().ChangeWeaponScroll(obj.ReadValue<float>() > 0 ? 1 : -1);
-        if(user == null) playerInputActions.Player.ChangeWeapon.performed -= ChangeWeapon_performed;
+        if (user == null) playerInputActions.Player.ChangeWeapon.performed -= ChangeWeapon_performed;
         user.GetComponent<Character>().ChangeWeapon(Mathf.Clamp((int)obj.ReadValue<float>(), 0, 1));
     }
 
@@ -49,9 +59,14 @@ public class Shoot_Input : StateEffect
 
     public override State OnUpdate(GameObject user, GameObject target, GameObject moveTarget)
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        this.user.lookDir = (Vector3)mousePos - user.transform.position;
+        // Calculate aim direction based on accelerometer input
+        Vector3 accelerometerInput = new Vector3(-Input.acceleration.y, Input.acceleration.x, 0f) * accelerometerSensitivity;
+
+        // Apply accelerometer input to the user's look direction
+        this.user.lookDir = Quaternion.Euler(accelerometerInput) * user.transform.forward;
 
         return null;
     }
 }
+
+

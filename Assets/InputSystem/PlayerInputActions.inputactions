@@ -44,6 +44,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "21137b0c-656d-4abc-ae71-5fbb5760ad83",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -61,7 +69,7 @@
                 {
                     "name": "",
                     "id": "48990dc7-b19e-4a0b-a1cd-5a545f164f97",
-                    "path": "<Touchscreen>/touch1/tap",
+                    "path": "<Touchscreen>/touch8/tap",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -71,8 +79,41 @@
                 },
                 {
                     "name": "",
-                    "id": "9645d318-df12-4b5a-935e-0a1f88a134ee",
-                    "path": "<Touchscreen>/touch7/radius/x",
+                    "id": "a5503111-6065-40fa-99f1-9292d6513719",
+                    "path": "<Touchscreen>/touch7/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f046015d-8338-4274-8b62-407d1de10d20",
+                    "path": "<Touchscreen>/touch6/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tarot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a8c25bf-d950-4f1a-967a-47fd731275df",
+                    "path": "<Touchscreen>/touch5/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "706d9808-72e1-4891-8920-66229ef2a26b",
+                    "path": "<Touchscreen>/touch9/delta/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

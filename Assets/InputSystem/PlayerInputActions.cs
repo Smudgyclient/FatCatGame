@@ -57,6 +57,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""21137b0c-656d-4abc-ae71-5fbb5760ad83"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -74,7 +82,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""48990dc7-b19e-4a0b-a1cd-5a545f164f97"",
-                    ""path"": ""<Touchscreen>/touch1/tap"",
+                    ""path"": ""<Touchscreen>/touch8/tap"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -84,8 +92,41 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9645d318-df12-4b5a-935e-0a1f88a134ee"",
-                    ""path"": ""<Touchscreen>/touch7/radius/x"",
+                    ""id"": ""a5503111-6065-40fa-99f1-9292d6513719"",
+                    ""path"": ""<Touchscreen>/touch7/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f046015d-8338-4274-8b62-407d1de10d20"",
+                    ""path"": ""<Touchscreen>/touch6/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tarot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a8c25bf-d950-4f1a-967a-47fd731275df"",
+                    ""path"": ""<Touchscreen>/touch5/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""706d9808-72e1-4891-8920-66229ef2a26b"",
+                    ""path"": ""<Touchscreen>/touch9/delta/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -105,6 +146,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -159,6 +201,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_ChangeWeapon;
+    private readonly InputAction m_Player_Escape;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -168,6 +211,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -192,6 +236,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @ChangeWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
                 @ChangeWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
                 @ChangeWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
+                @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -211,6 +258,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @ChangeWeapon.started += instance.OnChangeWeapon;
                 @ChangeWeapon.performed += instance.OnChangeWeapon;
                 @ChangeWeapon.canceled += instance.OnChangeWeapon;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -222,5 +272,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnChangeWeapon(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }
