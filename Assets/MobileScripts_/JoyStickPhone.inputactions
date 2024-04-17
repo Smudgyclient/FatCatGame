@@ -1,0 +1,33 @@
+{
+    "name": "JoyStickPhone",
+    "maps": [
+        {
+            "name": "MovementPad",
+            "id": "b45498d7-2e61-48b6-8723-a4e221c9943f",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "fa1307bb-1982-4aa2-9686-191fa9d07dff",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "938d806d-0fdb-42a6-93a4-b3c8e0d51a09",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
