@@ -27,7 +27,7 @@ public class TouchManager : MonoBehaviour
 
     private void TouchPressed(InputAction.CallbackContext context)
     {
-        float value = context.ReadValue<float>();
-        Debug.Log(value);
+        Camera.main.ScreenToWorldPoint(touchPositionAction.ReadValue<Vector2>());
+        
     }
 }
