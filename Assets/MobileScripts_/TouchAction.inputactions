@@ -1,0 +1,52 @@
+{
+    "name": "TouchAction",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "0eeda9fc-fa24-4603-a0f7-224781a76f23",
+            "actions": [
+                {
+                    "name": "TouchPosition",
+                    "type": "Value",
+                    "id": "1ba0f40e-3164-4704-aff5-fea6f06269d5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TouchPress",
+                    "type": "Button",
+                    "id": "20b058ab-8d8c-490d-bab9-7ca9b5169781",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "82225be8-e707-4ae8-9b17-c5dbaea2ee7f",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0d0c647-f4c0-412c-9074-3dc7dc9591b3",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

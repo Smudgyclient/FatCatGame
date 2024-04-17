@@ -4,33 +4,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
     public bool isPaused = false;
-    
     public GameObject menu;
 
-    //[SerializeField] private GameObject _resumeButton;
-    //[SerializeField] private GameObject _exitButton;
+    private PlayerInputActions playerInputActions;
 
-   
-
-    //private void Awake()
-    //{
-    //    Button btn = _resumeButton.GetComponent<Button>();
-    //    btn.onClick.AddListener(resume);
-
-    //    btn = _exitButton.GetComponent<Button>();
-    //    btn.onClick.AddListener(exit);
-    //}
-
-
-    public void resume() 
+    private void Awake()
     {
-        setPaused(false);
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Enable();
+        playerInputActions.Player.Escape.started += ctx => TogglePause();
     }
 
+    private void OnDestroy()
+    {
+      //  playerInputActions.Player.Escape.started -= TogglePause;
+    }
+
+    public void resume()
+    {
+        SetPaused(false);
+    }
 
     public void exit()
     {
@@ -38,25 +36,17 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
-    
-
-
-    private void Update()
+    private void TogglePause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            setPaused(!isPaused);
-        }
+        SetPaused(!isPaused);
     }
 
-
-    private void setPaused(bool paused)
+    private void SetPaused(bool paused)
     {
         isPaused = paused;
         menu.SetActive(paused);
         SetTimeScale();
     }
-
 
     private void SetTimeScale()
     {
