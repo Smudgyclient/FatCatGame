@@ -34,9 +34,18 @@ public class Shoot_Input : StateEffect
 
     private void ChangeWeapon_performed(InputAction.CallbackContext obj)
     {
-        //user.GetComponent<Character>().ChangeWeaponScroll(obj.ReadValue<float>() > 0 ? 1 : -1);
-        if (user == null) playerInputActions.Player.ChangeWeapon.performed -= ChangeWeapon_performed;
-        user.GetComponent<Character>().ChangeWeapon(Mathf.Clamp((int)obj.ReadValue<float>(), 0, 1));
+        // Check if the button press event is triggered
+        if (obj.performed)
+        {
+            // Read the value of the button press event
+            float buttonValue = obj.ReadValue<float>();
+
+            // Determine whether to increment or decrement the weapon index based on the button value
+            int direction = buttonValue > 0 ? 1 : -1;
+
+            // Change the weapon accordingly
+            user.GetComponent<Character>().ChangeWeaponScroll(direction);
+        }
     }
 
     private void OnDisable()

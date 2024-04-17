@@ -52,9 +52,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""ChangeWeapon"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""753e11eb-3200-4c3e-8097-555a4af84631"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -126,7 +126,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""706d9808-72e1-4891-8920-66229ef2a26b"",
-                    ""path"": ""<Touchscreen>/touch9/delta/x"",
+                    ""path"": ""<Touchscreen>/touch9/tap"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
