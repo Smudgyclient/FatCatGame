@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021063b73cd600e4d875933985ccf4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accelerometerSensitivity: 0.5
 --- !u!114 &3073857174968495376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3441879777456424529, guid: 5886df7f54b6d0f42993aa1f3ba350b4, type: 3}
+  m_Sprite: {fileID: 7586885874558119878, guid: db9f0718a7a7dfd4786161d1652f5c11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
